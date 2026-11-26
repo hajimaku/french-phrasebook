@@ -1,0 +1,21 @@
+{
+  "name": "french-phrasebook",
+  "version": "1.0.0",
+  "description": "日本語話者向けフランス語 旅の会話帳（ニース・モナコ一人旅用、オフライン対応 PWA）",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "node tools/server.cjs 8000",
+    "start:lan": "node tools/server.cjs 8000 --host 0.0.0.0",
+    "validate": "node tools/validate.cjs",
+    "test:e2e": "node tools/e2e.cjs",
+    "test": "node tools/validate.cjs && node tools/e2e.cjs",
+    "icons": "node tools/make-icons.cjs"
+  },
+  "devDependencies": {
+    "playwright": "1.63.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

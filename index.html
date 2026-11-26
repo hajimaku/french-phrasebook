@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>フランス語 旅の会話帳</title>
+  <meta name="description" content="ニース・モナコの一人旅で使う、日本語話者向けフランス語フレーズブック。オフライン対応。">
+  <meta name="theme-color" content="#f6f0e4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#1f1a16" media="(prefers-color-scheme: dark)">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="仏語 会話帳">
+  <meta name="format-detection" content="telephone=no">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <a class="skip" href="#main">本文へ</a>
+
+  <header class="topbar" id="topbar">
+    <a class="topbar-home" href="#/" aria-label="目次へ">
+      <svg class="ic" aria-hidden="true"><use href="#i-book"/></svg>
+      <span class="topbar-title" id="topbar-title">旅の会話帳</span>
+    </a>
+    <a class="topbar-btn" href="#/search" aria-label="検索">
+      <svg class="ic" aria-hidden="true"><use href="#i-search"/></svg>
+    </a>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <noscript><p class="pad">このアプリを使うには JavaScript を有効にしてください。</p></noscript>
+  </main>
+
+  <nav class="bottomnav" aria-label="メインメニュー">
+    <a href="#/" data-nav="toc"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg><span>目次</span></a>
+    <a href="#/search" data-nav="search"><svg class="ic" aria-hidden="true"><use href="#i-search"/></svg><span>検索</span></a>
+    <a href="#/essentials" data-nav="essentials"><svg class="ic" aria-hidden="true"><use href="#i-spark"/></svg><span>必須</span></a>
+    <a href="#/favorites" data-nav="favorites"><svg class="ic" aria-hidden="true"><use href="#i-star"/></svg><span>保存</span></a>
+    <a href="#/emergency" data-nav="emergency" class="nav-sos"><svg class="ic" aria-hidden="true"><use href="#i-sos"/></svg><span>緊急</span></a>
+  </nav>
+
+  <!-- 相手に見せるモード -->
+  <div class="show" id="show" role="dialog" aria-modal="true" aria-labelledby="show-fr" hidden>
+    <div class="show-bar">
+      <button type="button" class="show-close" data-act="close-show">
+        <svg class="ic" aria-hidden="true"><use href="#i-back"/></svg><span>戻る</span>
+      </button>
+      <div class="show-tools">
+        <button type="button" class="iconbtn" data-act="speak-show" aria-label="読み上げ">
+          <svg class="ic" aria-hidden="true"><use href="#i-speaker"/></svg>
+        </button>
+        <button type="button" class="iconbtn" data-act="fav-show" id="show-fav" aria-label="お気に入り" aria-pressed="false" hidden>
+          <svg class="ic" aria-hidden="true"><use href="#i-star"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="show-body" id="show-body">
+      <p class="show-lead" id="show-lead">フランス語でこう伝えたいです</p>
+      <p class="show-fr" id="show-fr" lang="fr"></p>
+      <p class="show-kana" id="show-kana"></p>
+      <p class="show-ja" id="show-ja"></p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <!-- アイコン（外部通信なし） -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-book" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5v-15ZM4 20.5A2.5 2.5 0 0 0 6.5 23H20v-5M8 7.5h8M8 11h6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15ZM16 16l5 5"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="m12 3 2.7 5.6 6.1.8-4.5 4.2 1.1 6.1L12 16.8l-5.4 2.9 1.1-6.1-4.5-4.2 6.1-.8L12 3Z"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 4h14v16l-7-4-7 4V4Z"/></symbol>
+    <symbol id="i-sos" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 3v18M3 12h18"/></symbol>
+    <symbol id="i-back" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-speaker" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 9.5h3.5L12 5.5v13l-4.5-4H4v-5ZM15.5 9a4 4 0 0 1 0 6M18 6.5a7.5 7.5 0 0 1 0 11"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-show" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4 5h16v11H4zM9 20h6M12 16v4"/></symbol>
+  </svg>
+
+  <script src="data/core.js"></script>
+  <script src="data/phrases-1.js"></script>
+  <script src="data/phrases-2.js"></script>
+  <script src="data/phrases-3.js"></script>
+  <script src="data/phrases-4.js"></script>
+  <script src="data/conversations.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
